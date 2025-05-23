@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Custom HTML5 Video Player</title>
+  <title>Video Player + Konami Code</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="player">
-    <video class="viewer" src="video.mp4"></video>
+    <video class="viewer" src="video.mp4" controls></video>
 
     <div class="player__controls">
       <div class="progress">
@@ -22,6 +22,8 @@
       <button data-skip="25" class="player__button">25s »</button>
     </div>
   </div>
+
+  <p class="secret-message hidden">🎉 You unlocked a secret using the Konami Code!</p>
 
   <script src="script.js"></script>
 </body>
