@@ -1,3 +1,4 @@
+// Video player logic (same as before)
 const player = document.querySelector('.player');
 const video = player.querySelector('.viewer');
 const progress = player.querySelector('.progress');
@@ -50,3 +51,22 @@ progress.addEventListener('click', scrub);
 progress.addEventListener('mousemove', e => mousedown && scrub(e));
 progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
+
+// 🔻 Konami Code Logic
+const pressed = [];
+const secretCode = 'arrowuparrowuparrowdownarrowdownarrowleftarrowrightarrowleftarrowrightba';
+
+window.addEventListener('keydown', (e) => {
+  pressed.push(e.key.toLowerCase());
+  pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+
+  if (pressed.join('').includes(secretCode)) {
+    triggerEasterEgg();
+  }
+});
+
+function triggerEasterEgg() {
+  const msg = document.querySelector('.secret-message');
+  msg.classList.add('show');
+  video.play();
+}
